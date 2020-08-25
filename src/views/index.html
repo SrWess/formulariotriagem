@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem</title>
+    <link rel="stylesheet" href="/public/styles/main.css">
+    <link rel="stylesheet" href="/public/styles/home.css">
+    <link rel="stylesheet" href="/public/styles/responsive.css">
+  </head>
+  <body>
+    <form id="atendimento">
+      <h1>Triagem</h1>
+      <fieldset>
+        <legend>
+          <h3>Contato</h3>
+        </legend>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone">
+          </div>
+
+          <div class="field">
+            <label for="contato">Meio de contato</label>
+            <select name="contato" id="contato">
+              <option value="">Selecione o tipo de contato</option>
+              <option value="telefone">Telefone</option>
+              <option value="mkbot">MKBot</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <h3>Informações ONU</h3>
+        </legend>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="sistema">Sistema</label>
+            <select name="sistema" id="sistema">
+              <option value="">Selecione o sistema</option>
+              <option value="unm">UNM</option>
+              <option value="u2000">U2000</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="alarme">Possui alarme(s)</label>
+            <select name="alarme" id="alarme">
+              <option value="">Selecione uma opção</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="slot">Slot</label>
+            <input type="number" name="slot" id="slot">
+          </div>
+
+          <div class="field">
+            <label for="pon">Pon</label>
+            <input type="number" name="pon" id="pon">
+          </div>
+
+          <div class="field">
+            <label for="onuid">ONU ID</label>
+            <input type="number" name="onuid" id="onuid">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="sinal">Sinal</label>
+            <input type="number" name="sinal" id="sinal">
+          </div>
+
+          <div class="field">
+            <label for="tx">Tx</label>
+            <input type="number" name="tx" id="tx">
+          </div>
+
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="cabo">Cabo</label>
+            <input type="number" name="cabo" id="cabo">
+          </div>
+
+          <div class="field">
+            <label for="pppoe">PPPoe</label>
+            <select name="pppoe" id="pppoe">
+              <option value="">Selecione uma opção</option>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <h3>Roteador</h3>
+        </legend>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="remoto">Acesso remoto</label>
+            <select name="remoto" id="remoto">
+              <option value="">Selecione uma opção</option>
+              <option value="ativo">Possui acesso</option>
+              <option value="inativo">Sem acesso</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="marca">Marca</label>
+            <input type="text" name="marca" id="marca">
+          </div>
+
+          <div class="field">
+            <label for="modelo">Modelo</label>
+            <input type="tel" name="modelo" id="modelo">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <h3>Tratativa</h3>
+        </legend>
+
+        <div class="field">
+          <label for="tratativa">Informações complementares</label>
+          <textarea name="tratativa" id="tratativa"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <h3>Encaminhamento</h3>
+        </legend>
+
+        <div class="field-group-tec">
+          <div class="field">
+            <label for="solucao">Possível solução</label>
+            <input type="text" name="solucao" id="solucao">
+          </div>
+
+          <div class="field">
+            <label for="ultimaos">Última O.S</label>
+            <textarea name="ultimaos" id="ultimaos"></textarea>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <div class="btn">
+        <button>Salvar</button>
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
