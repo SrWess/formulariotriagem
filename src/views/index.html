@@ -63,6 +63,42 @@
           </div>
         </div>
 
+        <div class="field-group-alarm">
+          <div class="field">
+            <label>Informe o alarme constatado</label>
+            <div class="alarms">
+              <input type="checkbox" id="dying" value="dying" disabled="disabled">
+              <label for="dying">DYING GASP</label>
+
+              <input type="checkbox" id="linkloss" value="linkloss" disabled="disabled">
+              <label for="linkloss">LINK LOSS</label>
+
+              <input type="checkbox" id="onulof" value="onulof" disabled="disabled">
+              <label for="onulof">ONU LOF</label>
+
+              <input type="checkbox" id="sd" value="sd" disabled="disabled">
+              <label for="sd">SD</label>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="timealarm">Horário do alarme</label>
+            <input type="datetime-local" name="timealarm" id="timealarm" disabled="disabled">
+          </div>
+
+          <div class="field">
+            <label>Possui mais clientes sem conexão</label>
+            <div class="alarms">
+              <input type="checkbox" id="clientsalarm" value="clientsalarm" disabled="disabled">
+              <label for="clientsalarm">Sim, possui</label>
+
+            </div>
+          </div>
+        </div>
+
         <div class="field-group">
           <div class="field">
             <label for="slot">Slot</label>
@@ -167,11 +203,16 @@
 
       </fieldset>
 
-      <div class="btn">
-        <button>Salvar</button>
+      <div class="btn-form">
+        <button class="btn">Salvar</button>
       </div>
     </form>
 
-    <script src="script.js"></script>
+    <section class="results">
+      <h2>Resultado triagem</h2>
+
+    </section>
+
+    <script src="/public/scripts/script.js"></script>
   </body>
 </html>

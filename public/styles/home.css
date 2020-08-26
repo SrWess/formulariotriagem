@@ -1,4 +1,4 @@
-form {
+form, .results {
   background: #FFF;
   padding: 64px;
   border-radius: 8px;
@@ -40,19 +40,26 @@ form .field-group {
   flex-wrap: wrap; 
 }
 
+form .field-group-alarm, 
 form .field-group-tec {
   display: flex;
   flex-direction: column;
 }
 
 
+
 form input,
-form select {
+form select,
+form .alarms {
   background-color: #F0F0F5;
   border: 0;
   padding: 16px 24px;
   font-size: 16px;
   border-radius: 8px;
+}
+
+form .alarms label {
+  margin-right: 10px;
 }
 
 form textarea {
@@ -61,8 +68,8 @@ form textarea {
   padding: 16px 24px;
   font-size: 16px;
   border-radius: 8px;
-  /* width: 289px; */
-  height: 120px;
+  min-height: 100px;
+  resize: vertical;
 }
 
 form label {
@@ -80,7 +87,7 @@ form .field-group .field:nth-child(3) {
   margin-bottom: 22px;
 }
 
-form .btn {
+form .btn-form {
   display: flex;
   justify-content: flex-end;
 }
