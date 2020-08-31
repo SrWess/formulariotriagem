@@ -31,16 +31,28 @@ form .field {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
-
+  /* margin-bottom: 22px; */
+  margin: 10px;
 }
+
+/* form .field:focus-within:after {
+  /* width: calc(100% - 3.2rem);
+  height: 2px;
+  content: '';
+  background: red;
+
+} */
 
 form .field-group {
   display: flex;
   flex-wrap: wrap; 
 }
 
-form .field-group-alarm, 
+form .field-group-alarm {
+  width: 100%;
+}
+
+
 form .field-group-tec {
   display: flex;
   flex-direction: column;
@@ -50,12 +62,20 @@ form .field-group-tec {
 
 form input,
 form select,
+form .rompimento,
 form .alarms {
   background-color: #F0F0F5;
   border: 0;
   padding: 16px 24px;
   font-size: 16px;
   border-radius: 8px;
+  outline: 0;
+}
+
+form .field:focus-within::after{
+  height: 1px;
+  content: '';
+  background: rgb(113, 0, 189);
 }
 
 form .alarms label {
@@ -70,6 +90,7 @@ form textarea {
   border-radius: 8px;
   min-height: 100px;
   resize: vertical;
+  outline: 0;
 }
 
 form label {
@@ -77,15 +98,14 @@ form label {
   margin-bottom: 8px;
 }
 
-form .field-group .field + .field {
+/* form .field-group .field + .field {
   margin-left: 24px;
-}
+} */
 
-form .field-group .field:nth-child(3) {
-  margin: 0px;
-  max-width: 289px;
-  margin-bottom: 22px;
-}
+ /* form .field-group .field:nth-child() {
+  flex: none;
+  width: 100%;
+} */
 
 form .btn-form {
   display: flex;
@@ -108,4 +128,10 @@ form button {
 
 form button:hover {
   background-color: rgb(32, 32, 32);
+}
+
+
+.infoTriagem section {
+  display: flex;
+  flex-direction: column;
 }
