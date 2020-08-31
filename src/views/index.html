@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Triagem</title>
-    <link rel="stylesheet" href="/public/styles/main.css">
-    <link rel="stylesheet" href="/public/styles/home.css">
-    <link rel="stylesheet" href="/public/styles/responsive.css">
+    <link rel="stylesheet" href="/public/styles/main.css" />
+    <link rel="stylesheet" href="/public/styles/home.css" />
+    <link rel="stylesheet" href="/public/styles/responsive.css" />
   </head>
   <body>
     <form id="atendimento">
@@ -18,23 +18,30 @@
 
         <div class="field-group">
           <div class="field">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome">
+            <label for="nomeTec">Técnico</label>
+            <input type="text" name="nomeTec" id="nomeTec"/>
           </div>
 
           <div class="field">
-            <label for="telefone">Telefone</label>
-            <input type="tel" name="telefone" id="telefone">
-          </div>
-
-          <div class="field">
-            <label for="contato">Meio de contato</label>
-            <select name="contato" id="contato">
+            <label for="tipoContato">Meio de contato</label>
+            <select name="tipoContato" id="tipoContato">
               <option value="">Selecione o tipo de contato</option>
               <option value="telefone">Telefone</option>
               <option value="mkbot">MKBot</option>
             </select>
           </div>
+
+          <div class="field">
+            <label for="nomeContato">Nome do contato</label>
+            <input type="text" name="nomeContato" id="nomeContato" />
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone"/>
+          </div>
+
+
         </div>
       </fieldset>
 
@@ -54,94 +61,109 @@
           </div>
 
           <div class="field">
+            <label for="nomeOlt">Nome da OLT</label>
+            <input type="text" name="nomeOlt" id="nomeOlt" />
+          </div>
+
+          <div class="field">
+            <label for="typeOnu">ONU</label>
+            <select name="typeOnu" id="typeOnu">
+              <option value="">Selecione o modelo</option>
+              <option value="fiberhome">FiberHome</option>
+              <option value="huawei">Huawei</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="estadosOnu">Estado</label>
+            <select name="estadosOnu" id="estadosOnu">
+              <option value="">Selecione o estado</option>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="field">
             <label for="alarme">Possui alarme(s)</label>
             <select name="alarme" id="alarme">
               <option value="">Selecione uma opção</option>
-              <option value="sim">Sim</option>
-              <option value="nao">Não</option>
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
             </select>
           </div>
-        </div>
 
-        <div class="field-group-alarm">
-          <div class="field">
-            <label>Informe o alarme constatado</label>
-            <div class="alarms">
-              <input type="checkbox" id="dying" value="dying" disabled="disabled">
-              <label for="dying">DYING GASP</label>
-
-              <input type="checkbox" id="linkloss" value="linkloss" disabled="disabled">
-              <label for="linkloss">LINK LOSS</label>
-
-              <input type="checkbox" id="onulof" value="onulof" disabled="disabled">
-              <label for="onulof">ONU LOF</label>
-
-              <input type="checkbox" id="sd" value="sd" disabled="disabled">
-              <label for="sd">SD</label>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="field-group">
           <div class="field">
             <label for="timealarm">Horário do alarme</label>
-            <input type="datetime-local" name="timealarm" id="timealarm" disabled="disabled">
+            <input
+              type="datetime-local"
+              name="timealarm"
+              id="timealarm"
+              disabled="disabled"
+            />
           </div>
 
-          <div class="field">
-            <label>Possui mais clientes sem conexão</label>
-            <div class="alarms">
-              <input type="checkbox" id="clientsalarm" value="clientsalarm" disabled="disabled">
-              <label for="clientsalarm">Sim, possui</label>
+          <div class="field-group-alarm">
+            <div class="field">
+              <label>Informe o alarme constatado</label>
+              <div class="alarms">
+                <input
+                  type="checkbox"
+                  id="dying_gasp"
+                  value="dying_gasp"
+                  disabled="disabled"
+                />
+                <label for="dying_gasp">DYING GASP</label>
 
+                <input
+                  type="checkbox"
+                  id="link_loss"
+                  value="link_loss"
+                  disabled="disabled"
+                />
+                <label for="link_loss">LINK LOSS</label>
+
+                <input
+                  type="checkbox"
+                  id="onu_lof"
+                  value="onu_lof"
+                  disabled="disabled"
+                />
+                <label for="onu_lof">ONU LOF</label>
+
+                <input type="checkbox" id="sd" value="sd" disabled="disabled" />
+                <label for="sd">SD</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="field-group">
           <div class="field">
             <label for="slot">Slot</label>
-            <input type="number" name="slot" id="slot">
+            <input type="number" name="slot" id="slot" />
           </div>
 
           <div class="field">
             <label for="pon">Pon</label>
-            <input type="number" name="pon" id="pon">
+            <input type="number" name="pon" id="pon" />
           </div>
 
           <div class="field">
             <label for="onuid">ONU ID</label>
-            <input type="number" name="onuid" id="onuid">
+            <input type="number" name="onuid" id="onuid" />
           </div>
-        </div>
 
-        <div class="field-group">
           <div class="field">
             <label for="sinal">Sinal</label>
-            <input type="number" name="sinal" id="sinal">
+            <input type="number" name="sinal" id="sinal" />
           </div>
 
           <div class="field">
             <label for="tx">Tx</label>
-            <input type="number" name="tx" id="tx">
+            <input type="number" name="tx" id="tx" />
           </div>
 
-        </div>
-
-        <div class="field-group">
           <div class="field">
             <label for="cabo">Cabo</label>
-            <input type="number" name="cabo" id="cabo">
-          </div>
-
-          <div class="field">
-            <label for="pppoe">PPPoe</label>
-            <select name="pppoe" id="pppoe">
-              <option value="">Selecione uma opção</option>
-              <option value="ativo">Ativo</option>
-              <option value="inativo">Inativo</option>
-            </select>
+            <input type="number" name="cabo" id="cabo" />
           </div>
         </div>
       </fieldset>
@@ -153,6 +175,15 @@
 
         <div class="field-group">
           <div class="field">
+            <label for="pppoe">PPPoe</label>
+            <select name="pppoe" id="pppoe">
+              <option value="">Selecione uma opção</option>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="field">
             <label for="remoto">Acesso remoto</label>
             <select name="remoto" id="remoto">
               <option value="">Selecione uma opção</option>
@@ -163,12 +194,12 @@
 
           <div class="field">
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca">
+            <input type="text" name="marca" id="marca" />
           </div>
 
           <div class="field">
             <label for="modelo">Modelo</label>
-            <input type="tel" name="modelo" id="modelo">
+            <input type="tel" name="modelo" id="modelo" />
           </div>
         </div>
       </fieldset>
@@ -192,7 +223,7 @@
         <div class="field-group-tec">
           <div class="field">
             <label for="solucao">Possível solução</label>
-            <input type="text" name="solucao" id="solucao">
+            <input type="text" name="solucao" id="solucao" />
           </div>
 
           <div class="field">
@@ -200,7 +231,6 @@
             <textarea name="ultimaos" id="ultimaos"></textarea>
           </div>
         </div>
-
       </fieldset>
 
       <div class="btn-form">
@@ -211,6 +241,7 @@
     <section class="results">
       <h2>Resultado triagem</h2>
 
+      <div class="infoTriagem"></div>
     </section>
 
     <script src="/public/scripts/script.js"></script>
