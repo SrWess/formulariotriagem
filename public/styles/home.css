@@ -4,7 +4,7 @@ form, .results {
   border-radius: 8px;
   max-width: 730px;
   margin: 80px auto;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+  /* box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20); */
 }
 
 form h1 {
@@ -16,11 +16,17 @@ form fieldset {
   border: 0;
 }
 
+form fieldset + fieldset {
+  margin-top: 44px;
+}
+
 form legend {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6f0;
 }
 
 form legend h3 {
@@ -31,17 +37,9 @@ form .field {
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 22px; */
   margin: 10px;
+  position: relative;
 }
-
-/* form .field:focus-within:after {
-  /* width: calc(100% - 3.2rem);
-  height: 2px;
-  content: '';
-  background: red;
-
-} */
 
 form .field-group {
   display: flex;
@@ -59,7 +57,6 @@ form .field-group-tec {
 }
 
 
-
 form input,
 form select,
 form .rompimento,
@@ -73,9 +70,15 @@ form .alarms {
 }
 
 form .field:focus-within::after{
-  height: 1px;
+  height: 2px;
   content: '';
   background: rgb(113, 0, 189);
+  width: 90%;
+  text-align-last: center;
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
 }
 
 form .alarms label {
@@ -97,15 +100,6 @@ form label {
   font-size: 14px;
   margin-bottom: 8px;
 }
-
-/* form .field-group .field + .field {
-  margin-left: 24px;
-} */
-
- /* form .field-group .field:nth-child() {
-  flex: none;
-  width: 100%;
-} */
 
 form .btn-form {
   display: flex;
