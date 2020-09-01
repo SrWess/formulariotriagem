@@ -7,6 +7,7 @@
   form .alarms {
     display: flex;
     align-items: center;
+    /* flex-direction: column; */
   }
 
   form .alarms label {
@@ -16,12 +17,4 @@
   form .field-group {
     flex-direction: column;
   }
-
-  /* form .field-group .field + .field {
-    margin-left: 0px;
-  }
-
-  form .field-group .field:nth-child(3) {
-    max-width: none;
-  } */
 }
