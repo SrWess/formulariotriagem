@@ -8,6 +8,8 @@ const infoTriagem = document.querySelector(".infoTriagem");
 
 const sectionContato = document.createElement("section");
 const sectionOnu = document.createElement("section");
+const sectionRouter = document.createElement("section");
+const sectionAtendimento = document.createElement("section");
 
 function handleChange(event) {
   const name = event.target.name;
@@ -17,6 +19,8 @@ function handleChange(event) {
 
   infoContact(dados);
   infoOnu(dados);
+  infoRouter(dados);
+  infoAtendimento(dados);
 }
 
 const capitalize = (s) => {
@@ -42,32 +46,32 @@ const maskTel = (tel) => {
       tel = `(${dddTel})${telPartOne}-${telPartTwo}`;
     }
   } else {
-    tel = ' '
+    tel = " ";
   }
 
-  return tel
+  return tel;
 };
 
 function infoContact(contact) {
   sectionContato.innerHTML = `
-  <span>
+  <p>
   <strong>Técnico:</strong>
     ${capitalize(contact.nomeTec)}
-  </span>
-  <span>
+  </p>
+  <p>
   <strong>Meio de contato:</strong>
     ${capitalize(contact.tipoContato)}
-  </span>
+  </p>
   </br>
 
-  <span>
+  <p>
   <strong>- Contato:</strong>
     ${capitalize(contact.nomeContato)}
-  </span>
-  <span>
+  </p>
+  <p>
   <strong>- Telefone:</strong>
     ${maskTel(contact.telefone)}
-  </span>
+  </p>
   </br>
   `;
   infoTriagem.append(sectionContato);
@@ -119,54 +123,138 @@ function infoOnu(value) {
 
     inputDate.disabled = true;
     timeConvert = "";
-    alarmsActive = ""
+    alarmsActive = "";
   }
 
-  console.log(value.alarme);
-  console.log(alarmsActive);
   sectionOnu.innerHTML = `
-    <span>
+    <p>
       <strong>- Sistema:</strong>
-      ${value.sistema ? capitalize(value.sistema): "Sistema não selecionado"}
-    </span>
-    <span>
+      ${value.sistema ? value.sistema.toUpperCase() : ""}
+    </p>
+    <p>
       <strong>- OLT:</strong>
-      ${value.nomeOlt ? capitalize(value.nomeOlt): "OLT não informada"}
-    </span>
-    <span>
-      <strong>- ${value.typeOnu ? capitalize(value.typeOnu) : "ONU não informado"}:</strong>
-      ${value.estadosOnu ? capitalize(value.estadosOnu) : "Não informado"}
-    </span>
-    <span>
+      ${value.nomeOlt ? value.nomeOlt.toUpperCase() : ""}
+    </p>
+    <p>
+      <strong>- ${
+        value.typeOnu ? capitalize(value.typeOnu) : "ONU não informado"
+      }:</strong>
+      ${value.estadosOnu ? capitalize(value.estadosOnu) : ""}
+    </p>
+    <p>
       <strong>- Alarme(s) Constatado(s):</strong>
-      ${alarmsActive ? alarmsActive.join(', ').concat(' - ', timeConvert) : 'Sem alarmes constatados'}
-    </span>
-    <span>
+      ${
+        alarmsActive
+          ? alarmsActive.join(", ").concat(" - ", timeConvert)
+          : "Sem alarmes constatados"
+      }
+    </p>
+    <p>
       <strong>- SLOT:</strong>
-      ${value.slot}
+      ${value.slot ? value.slot : ""}
       <strong>/ PON:</strong>
-      ${value.pon}
-    </span>
-    <span>
+      ${value.pon ? value.pon : ""}
+    </p>
+    <p>
       <strong>- ONU ID:</strong>
-      ${value.onuid}
-    </span>
-    <span>
+      ${value.onuid ? value.onuid : ""}
+    </p>
+    <p>
       <strong>- Sinal:</strong>
-      ${value.sinal}
-    </span>
-    <span>
+      - ${value.sinal ? value.sinal : ""} dBm
+    </p>
+    <p>
       <strong>- TX:</strong>
-      ${value.tx}
-    </span>
-    <span>
+      ${value.tx ? value.tx : ""} dBm
+    </p>
+    <p>
       <strong>- Cabo:</strong>
-      ${value.cabo}
-    </span>
+      ${value.cabo ? value.cabo : ""} Mbps
+    </p>
     </br>
-  `
+  `;
   infoTriagem.append(sectionOnu);
+}
 
+function infoRouter(value) {
+  //Select Router
+  const selectPppoe = document.querySelector('select[name="pppoe"]');
+  const valuePppoe = selectPppoe.selectedIndex;
+
+  const selectRemoto = document.querySelector('select[name="remoto"');
+  const valueRemoto = selectRemoto.selectedIndex;
+
+  const routerMarca = document.querySelector('input[name="marca"]');
+  const routerModelo = document.querySelector('input[name="modelo"]');
+
+  if (valuePppoe === 1) {
+    selectRemoto.disabled = false;
+  } else {
+    selectRemoto.disabled = true;
+    selectRemoto.value = "";
+  }
+
+  if (valueRemoto === 1) {
+    routerMarca.disabled = false;
+    routerModelo.disabled = false;
+  } else {
+    routerMarca.disabled = true;
+    routerMarca.value = "";
+    routerModelo.disabled = true;
+    routerModelo.value = "";
+  }
+
+  sectionRouter.innerHTML = `
+  <p>
+  <strong>- PPPoe:</strong>
+    ${capitalize(value.pppoe)}
+  </p>
+
+  <p>
+  <strong>- Acesso Remoto:</strong>
+    ${capitalize(value.remoto) ? 'Possui acesso' : ''}
+  </p>
+
+  <p>
+  <strong>- Roteador:</strong>
+    ${value.marca ? value.marca : ''}  ${value.modelo ? value.modelo : ''}
+  </p>
+  </br>
+  `;
+
+  infoTriagem.append(sectionRouter);
+}
+
+function infoAtendimento(value) {
+  let linhas = value.tratativa.split('\n')
+  let removeLineWhite = linhas.filter(linha => linha.trim())
+  let lis = removeLineWhite.map((linha, i) => `
+  <li class="tratativa${i+1}">
+    ${linha}
+  </li>
+  `)
+  let resultadoLis = lis.join('\n')
+
+  console.log(removeLineWhite);
+
+  sectionAtendimento.innerHTML = `
+  <p>
+  <strong>- Tratativa:</strong>
+  ${resultadoLis}
+  </p>
+  </br>
+
+  <p>
+  <strong>- Possível Solução:</strong>
+  ${capitalize(value.solucao)}
+  </p>
+  <p>
+  <strong>- Última O.S:</strong>
+  ${capitalize(value.ultimaos)}
+  </p>
+  `
+
+  infoTriagem.append(sectionAtendimento);
 }
 
 atendimento.addEventListener("change", handleChange);
